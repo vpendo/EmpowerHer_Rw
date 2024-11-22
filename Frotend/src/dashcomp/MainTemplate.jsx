@@ -4,18 +4,23 @@ import {
   FiHome, FiUsers, FiLogOut, FiShoppingCart,
   FiDollarSign, FiPieChart, FiLayers, FiShield, FiMapPin
 } from 'react-icons/fi';
-import {HomeDash} from './HomeDash';
+import HomeDash from './HomeDash';
+import StudentDashboard from './StudentDashboard';
 import { useTheme } from '../App';
 import Courses from './Courses';
-import Mentors from './Mentors';
+import Mentors from './Mentors'; 
 import Studentlist from './Studentlist';
 import ScheduleList from './Schedulelist';
 import CalendarList from './Calendarlist';
 import GradeList from './Gradelist';
 import ProgressList from './Progresslist';
 import UserTable from './UserTable';
+import MentorTable from './MentorTable';
+import CourseTable from './CourseTable';
+import Settings from './Settings';
 
 import AdminCheckTable from './AdminCheckTable';
+import MentorDashboard from './MentorDashboard';
 
 
 const DashboardLayout = () => {
@@ -34,7 +39,6 @@ const DashboardLayout = () => {
     { name: 'Course', href: '#', icon: FiShoppingCart, id: 'Course' },
     { name: 'Mentorship', href: '#', icon: FiMapPin, id: 'Mentors' },
     { name: 'Grade', href: '#', icon: FiPackage, id: 'grade' },
-    { name: 'Progress', href: '#', icon: FiPackage, id: 'progress' },
     { name: 'Feedback', href: '#', icon: FiLayers, id: 'Feedback' },
 
   ];
@@ -50,11 +54,11 @@ const DashboardLayout = () => {
 
   const adminNavigation = [
     { name: 'Dashboard', href: '#', icon: FiHome, id: 'dashboard' },
-    { name: 'Admin', href: '#', icon: FiPackage, id: 'admin' },
     { name: 'User', href: '#', icon: FiUsers, id: 'User' },
     { name: 'Mentor', href: '#', icon: FiDollarSign, id: 'Mentor' },
+    { name: 'Course', href: '#', icon: FiPackage, id: 'Course' },
     { name: 'Checking', href: '#', icon: FiPieChart, id: 'Checking' },
-    { name: 'Setting', href: '#', icon: FiLayers, id: 'Setting' },
+    { name: 'Settings', href: '#', icon: FiLayers, id: 'Settings' },
   ];
 
   // Determine the current navigation based on active role
@@ -186,7 +190,15 @@ const DashboardLayout = () => {
 
         {/* Page Content */}
         <main className="p-6">
-          {activeLink === "dashboard" && <HomeDash isAdmin={currentRole === 'admin'} />}
+          {activeLink === "dashboard" && (
+            currentRole === 'admin' ? (
+              <HomeDash isAdmin={true} />
+            ) : currentRole === 'Student' ? (
+              <StudentDashboard />
+            ) : currentRole === 'Mentor' ? (
+              <MentorDashboard />
+            ) : null
+          )}
           {activeLink === "Course" && <Courses />}
           {activeLink === "Mentors" && <Mentors />}
           {activeLink === "Student" && <Studentlist/>}
@@ -195,11 +207,10 @@ const DashboardLayout = () => {
           {activeLink === "grade" && <GradeList/>}
           {activeLink === "Feedback" && <ProgressList/>}
           {activeLink === "User" && <UserTable/>}
+          {activeLink === "Course" && <CourseTable/>}
           {activeLink === "Mentor" && <MentorTable/>}
-          {activeLink === "Checking" && <AdminCheckTable/>}          
-          
-          
-          {/* Additional content based on activeLink */}
+          {activeLink === "Checking" && <AdminCheckTable/>}    
+          {activeLink === "Settings" && <Settings/>}
         </main>
       </div>
     </div>

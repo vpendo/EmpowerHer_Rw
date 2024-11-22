@@ -7,6 +7,9 @@ const Courses = () => {
   const [search, setSearch] = useState("");
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [isEditing, setIsEditing] = useState(null);
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
+  const [showEnrollPopup, setShowEnrollPopup] = useState(false);
+  const [enrollingCourse, setEnrollingCourse] = useState(null);
 
   const initialCourses = [
     {
@@ -249,6 +252,19 @@ const Courses = () => {
     )
   );
 
+  const handleEnrollment = (course) => {
+    setEnrollingCourse(course);
+    setShowEnrollPopup(true);
+  };
+
+  const confirmEnrollment = () => {
+    if (enrollingCourse) {
+      setEnrolledCourses([...enrolledCourses, enrollingCourse.id]);
+      setShowEnrollPopup(false);
+      setEnrollingCourse(null);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -328,12 +344,18 @@ const Courses = () => {
                       <Calendar className="h-4 w-4 mr-1" />
                       {course.duration}
                     </div>
-                    <button
-                      onClick={() => setSelectedCourse(course)}
-                      className="text-blue-500 hover:text-blue-600 font-medium"
-                    >
-                      View Details
-                    </button>
+                    <div className="flex items-center gap-2">
+                      {enrolledCourses.includes(course.id) ? (
+                        <span className="text-green-500 font-medium">Enrolled in Course</span>
+                      ) : (
+                        <button
+                          onClick={() => setSelectedCourse(course)}
+                          className="text-blue-500 hover:text-blue-600 font-medium"
+                        >
+                          View Details
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -375,12 +397,18 @@ const Courses = () => {
                         <p className="font-medium text-blue-500">Free</p>
                       </div>
                     </div>
-                    <button
-                      onClick={() => setSelectedCourse(course)}
-                      className="text-blue-500 hover:text-blue-600 font-medium"
-                    >
-                      View Details
-                    </button>
+                    <div className="flex items-center gap-4">
+                      {enrolledCourses.includes(course.id) ? (
+                        <span className="text-green-500 font-medium">Enrolled in Course</span>
+                      ) : (
+                        <button
+                          onClick={() => handleEnrollment(course)}
+                          className="text-blue-500 hover:text-blue-600 font-medium"
+                        >
+                          View Details
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -457,13 +485,49 @@ const Courses = () => {
                           Free
                         </span>
                       </div>
-                      <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                        Enroll Now
+                      <button 
+                        onClick={() => handleEnrollment(selectedCourse)}
+                        className={`w-full py-2 rounded-lg transition-colors ${
+                          enrolledCourses.includes(selectedCourse.id)
+                            ? 'bg-green-500 hover:bg-green-600'
+                            : 'bg-blue-500 hover:bg-blue-600'
+                        } text-white`}
+                        disabled={enrolledCourses.includes(selectedCourse.id)}
+                      >
+                        {enrolledCourses.includes(selectedCourse.id) ? 'Enrolled in Course' : 'Enroll Now'}
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showEnrollPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full">
+            <h3 className="text-xl font-semibold mb-4">Confirm Enrollment</h3>
+            <p className="text-gray-600 mb-6">
+              Are you sure you want to enroll in "{enrollingCourse?.title}"?
+            </p>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => {
+                  setShowEnrollPopup(false);
+                  setEnrollingCourse(null);
+                }}
+                className="px-4 py-2 text-gray-600 hover:text-gray-800"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmEnrollment}
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
+                Confirm Enrollment
+              </button>
             </div>
           </div>
         </div>

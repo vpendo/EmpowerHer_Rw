@@ -46,6 +46,7 @@ const UserInfo = localStorage.getItem("UserInfo");
           <Route path="/mentorship" element={<Mentorships />} />
           <Route path="/studentdashboard" element={UserInfo ? <DashboardLayout /> : <Login />} />
           <Route path="/login" element={UserInfo ? <DashboardLayout /> : <Login /> } />
+          <Route path="*" element={"Not Found"} />
         </Routes>
       </Router>
     </ThemeContext.Provider>
