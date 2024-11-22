@@ -19,7 +19,7 @@ const Courses = () => {
       level: "Advanced",
       rating: 4.8,
       enrolled: 1250,
-      price: 99.99,
+      price: 0,
       image: "https://download.logo.wine/logo/React_(web_framework)/React_(web_framework)-Logo.wine.png",
       lectures: [
         "Modern React Fundamentals",
@@ -54,7 +54,7 @@ const Courses = () => {
       level: "Intermediate",
       rating: 4.7,
       enrolled: 2100,
-      price: 89.99,
+      price: 0,
       image: "https://www.svgrepo.com/show/376344/python.svg",
       lectures: [
         "Python Fundamentals",
@@ -78,49 +78,160 @@ const Courses = () => {
       ]
     },
     {
-    id: 3, 
-    title: "Introduction to Robotics",
-    description: "Explore the fundamentals of robotics, including robot design, programming, and control systems. Gain hands-on experience with building and programming robots.",
-    date: "2024-11-15",
-    instructor: "Alice Green",
-    duration: "10 weeks",
-    level: "Intermediate",
-    rating: 4.6,
-    enrolled: 950,
-    price: 89.99,
-    image: "https://up-board.org/wp-content/uploads/2022/08/03_UP-Xtreme-i11-Robotic-Development-Kit-1024x1024.png",
-    lectures: [
-      "Basics of Robotics",
-      "Sensors and Actuators",
-      "Robot Programming",
-      "Control Systems"
-    ],
-    requirements: [
-      "Basic programming skills",
-      "Understanding of electronics"
-    ],
-    outcomes: [
-      "Build and program basic robots",
-      "Understand robotics applications",
-      "Work with sensors and actuators"
-    ],
-    materials: [
-      "Robotics kits",
-      "Video tutorials",
-      "Project documentation"
-    ]
-  }
-];
-
- 
+      id: 3,
+      title: "HTML and CSS for Beginners",
+      description: "Start your web development journey with HTML5 and CSS3. Learn to build beautiful, responsive websites from scratch.",
+      date: "2024-11-15",
+      instructor: "Alice Green",
+      duration: "8 weeks",
+      level: "Beginner",
+      rating: 4.6,
+      enrolled: 2500,
+      price: 0,
+      image: "https://i.pinimg.com/originals/52/2e/6b/522e6bc1a11d1726a35f81cbd979395f.jpg",
+      lectures: [
+        "HTML5 Fundamentals",
+        "CSS3 Basics",
+        "Responsive Web Design",
+        "CSS Flexbox and Grid",
+        "Building Modern Layouts"
+      ],
+      requirements: [
+        "No prior coding experience needed",
+        "Basic computer skills",
+        "Enthusiasm to learn"
+      ],
+      outcomes: [
+        "Build responsive websites",
+        "Style web pages with CSS3",
+        "Create modern layouts",
+        "Understand web development basics"
+      ],
+      materials: [
+        "Video tutorials",
+        "Practice exercises",
+        "Project files",
+        "Coding resources"
+      ]
+    },
+    {
+      id: 4,
+      title: "Full Stack Web Development",
+      description: "Master both frontend and backend development with modern technologies. Learn to build complete web applications from scratch.",
+      date: "2024-12-01",
+      instructor: "David Wilson",
+      duration: "16 weeks",
+      level: "Intermediate",
+      rating: 4.9,
+      enrolled: 1800,
+      price: 0,
+      image: "https://cdni.iconscout.com/illustration/premium/thumb/full-stack-developer-illustration-download-in-svg-png-gif-file-formats--java-logo-web-development-pack-crime-security-illustrations-4051527.png",
+      lectures: [
+        "HTML5 & CSS3 Mastery",
+        "JavaScript & ES6+",
+        "Node.js & Express",
+        "MongoDB & Database Design",
+        "API Development"
+      ],
+      requirements: [
+        "Basic HTML/CSS knowledge",
+        "Understanding of JavaScript",
+        "Computer with internet connection"
+      ],
+      outcomes: [
+        "Build full-stack web applications",
+        "Deploy applications to the cloud",
+        "Work with databases and APIs",
+        "Implement authentication and security"
+      ],
+      materials: [
+        "HD Video lectures",
+        "Coding exercises",
+        "Project starter files",
+        "Development environment setup guide"
+      ]
+    },
+    {
+      id: 5,
+      title: "Cybersecurity Fundamentals",
+      description: "Learn essential cybersecurity concepts, threat detection, and security implementation. Perfect for IT professionals and security enthusiasts.",
+      date: "2024-11-30",
+      instructor: "Emily Rodriguez",
+      duration: "14 weeks",
+      level: "Beginner",
+      rating: 4.7,
+      enrolled: 1500,
+      price: 0,
+      image: "https://flashtek.online/wp-content/uploads/2024/04/what-is-cybersecurity.png",
+      lectures: [
+        "Security Fundamentals",
+        "Network Security",
+        "Cryptography Basics",
+        "Threat Detection",
+        "Security Tools & Practices"
+      ],
+      requirements: [
+        "Basic IT knowledge",
+        "Understanding of networks",
+        "No prior security experience needed"
+      ],
+      outcomes: [
+        "Implement security best practices",
+        "Detect and prevent cyber threats",
+        "Understand security protocols",
+        "Use security tools effectively"
+      ],
+      materials: [
+        "Video tutorials",
+        "Security tools guide",
+        "Practice labs",
+        "Case studies"
+      ]
+    },
+    {
+      id: 6,
+      title: "UI/UX Design Masterclass",
+      description: "Learn to create beautiful and functional user interfaces. Master the principles of user experience design and modern design tools.",
+      date: "2024-12-15",
+      instructor: "Sophie Anderson",
+      duration: "10 weeks",
+      level: "Intermediate",
+      rating: 4.8,
+      enrolled: 1350,
+      price: 0,
+      image: "https://www.creativeitinstitute.com/images/course/course_1663052056.jpg",
+      lectures: [
+        "Design Principles",
+        "User Research",
+        "Wireframing & Prototyping",
+        "Figma Mastery",
+        "Design Systems"
+      ],
+      requirements: [
+        "Basic design knowledge",
+        "Creativity and attention to detail",
+        "Computer with design software"
+      ],
+      outcomes: [
+        "Create user-centered designs",
+        "Build interactive prototypes",
+        "Conduct user research",
+        "Develop design systems"
+      ],
+      materials: [
+        "Design software tutorials",
+        "UI kit templates",
+        "Case study projects",
+        "Design resources library"
+      ]
+    }
+  ];
 
   const [courses, setCourses] = useState(initialCourses);
 
   const sortCourses = (coursesToSort) => {
     return [...coursesToSort].sort((a, b) => {
       switch (sortBy) {
-        case 'price':
-          return a.price - b.price;
         case 'rating':
           return b.rating - a.rating;
         case 'enrolled':
@@ -162,7 +273,6 @@ const Courses = () => {
                 onChange={(e) => setSortBy(e.target.value)}
               >
                 <option value="title">Sort by Title</option>
-                <option value="price">Sort by Price</option>
                 <option value="rating">Sort by Rating</option>
                 <option value="enrolled">Sort by Popularity</option>
               </select>
@@ -211,7 +321,7 @@ const Courses = () => {
                       <span className="mx-2 text-gray-300">•</span>
                       <span className="text-gray-600">{course.enrolled} students</span>
                     </div>
-                    <span className="text-blue-500 font-bold">${course.price}</span>
+                    <span className="text-blue-500 font-bold">Free</span>
                   </div>
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <div className="flex items-center">
@@ -262,7 +372,7 @@ const Courses = () => {
                       </div>
                       <div>
                         <span className="text-gray-500">Price</span>
-                        <p className="font-medium text-blue-500">${course.price}</p>
+                        <p className="font-medium text-blue-500">Free</p>
                       </div>
                     </div>
                     <button
@@ -344,7 +454,7 @@ const Courses = () => {
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-gray-900 font-medium">Price</span>
                         <span className="text-blue-500 font-bold text-xl">
-                          ${selectedCourse.price}
+                          Free
                         </span>
                       </div>
                       <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
