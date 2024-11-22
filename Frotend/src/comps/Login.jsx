@@ -32,7 +32,7 @@ export default function Login() {
       if (res.data.status == "Successfully logged in") {
         console.log(res.data.UserInfo)
         localStorage.setItem("UserInfo",JSON.stringify(res.data.UserInfo))
-         window.location.href ="/dashboard";
+         window.location.href ="/studentdashboard";
       } else {
         setDoneN(res.data.Error || "Login failed. Please try again.");
         console.log(res.data.status)

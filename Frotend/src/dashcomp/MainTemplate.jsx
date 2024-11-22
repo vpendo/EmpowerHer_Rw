@@ -14,7 +14,7 @@ import CalendarList from './Calendarlist';
 import GradeList from './Gradelist';
 import ProgressList from './Progresslist';
 import UserTable from './UserTable';
-import MentorTable from './MentorTable';
+
 import AdminCheckTable from './AdminCheckTable';
 
 
@@ -35,15 +35,17 @@ const DashboardLayout = () => {
     { name: 'Mentorship', href: '#', icon: FiMapPin, id: 'Mentors' },
     { name: 'Grade', href: '#', icon: FiPackage, id: 'grade' },
     { name: 'Progress', href: '#', icon: FiPackage, id: 'progress' },
+    { name: 'Feedback', href: '#', icon: FiLayers, id: 'Feedback' },
+
   ];
 
   const mentorsNavigation = [
     { name: 'Dashboard', href: '#', icon: FiHome, id: 'dashboard' },
-    { name: 'Mentor', href: '#', icon: FiPackage, id: 'Mentors' },
+    
     { name: 'Student', href: '#', icon: FiUsers, id: 'Student' },
     { name: 'Scheledule', href: '#', icon: FiDollarSign, id: 'Scheledule' },
     { name: 'Calendar', href: '#', icon: FiPieChart, id: 'Calendar' },
-    { name: 'Progress', href: '#', icon: FiLayers, id: 'Progress' },
+    
   ];
 
   const adminNavigation = [
@@ -191,7 +193,7 @@ const DashboardLayout = () => {
           {activeLink === "Scheledule" && <ScheduleList/>}
           {activeLink === "Calendar" && <CalendarList/>}
           {activeLink === "grade" && <GradeList/>}
-          {activeLink === "Progress" && <ProgressList/>}
+          {activeLink === "Feedback" && <ProgressList/>}
           {activeLink === "User" && <UserTable/>}
           {activeLink === "Mentor" && <MentorTable/>}
           {activeLink === "Checking" && <AdminCheckTable/>}          

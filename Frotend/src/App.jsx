@@ -44,7 +44,7 @@ const UserInfo = localStorage.getItem("UserInfo");
           <Route path="/services" element={<ServicePage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/mentorship" element={<Mentorships />} />
-          <Route path="/dashboard" element={UserInfo ? <DashboardLayout /> : <Login />} />
+          <Route path="/studentdashboard" element={UserInfo ? <DashboardLayout /> : <Login />} />
           <Route path="/login" element={UserInfo ? <DashboardLayout /> : <Login /> } />
         </Routes>
       </Router>
