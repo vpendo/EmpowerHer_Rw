@@ -62,58 +62,77 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded shadow-md w-full max-w-sm">
-        <h2 className="text-center text-2xl font-bold text-gray-700 mb-6">Login to EmpowerHer</h2>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-indigo-400 to-violet-500">
+      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+        <h2 className="text-center text-3xl font-bold bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent mb-8">
+          Welcome Back!
+        </h2>
 
         {doneN && (
-          <div onClick={() => setDoneN(null)} className="text-red-500 bg-red-50 p-2 mb-2">
+          <div 
+            onClick={() => setDoneN(null)} 
+            className="bg-red-50 text-red-500 p-4 rounded-lg mb-6 cursor-pointer"
+          >
             {doneN}
           </div>
         )}
 
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold" htmlFor="email">
-            Email <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="email"
-            value={values.email}
-            onChange={handleChange}
-            id="email"
-            name="email"
-            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter your email"
-            required
-          />
+        <div className="space-y-6">
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">
+              Email <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              value={values.email}
+              onChange={handleChange}
+              id="email"
+              name="email"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="password">
+              Password <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="password"
+              value={values.password}
+              onChange={handleChange}
+              id="password"
+              name="password"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <button
+            onClick={handleSubmit}
+            className="w-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white py-3 rounded-lg hover:opacity-90 transition-all duration-300"
+          >
+            Sign in
+          </button>
+
+          <div className="text-center space-y-3">
+            <p className="text-gray-600">
+              Don't have an account?{' '}
+              <Link to="/register" className="text-indigo-500 hover:text-indigo-600 font-medium">
+                Sign Up
+              </Link>
+            </p>
+            
+            <Link 
+              to="/" 
+              className="inline-flex items-center text-gray-500 hover:text-gray-700 text-sm transition-colors duration-200"
+            >
+              ← Back to Home
+            </Link>
+          </div>
         </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold" htmlFor="password">
-            Password <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="password"
-            value={values.password}
-            onChange={handleChange}
-            id="password"
-            name="password"
-            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
-        >
-          Sign in
-        </button>
-
-        <p className="text-center text-gray-600 mt-4">
-          Don't have an account? <Link to="/register" className="text-blue-500">Sign Up</Link>
-        </p>
       </div>
     </div>
   );

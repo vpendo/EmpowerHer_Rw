@@ -5,8 +5,8 @@ from db.database import engine
 from models import userModels
 
 app = FastAPI(
-    title="Pendo API",
-    description="API for Pendo Application",
+    title="EmpowerHer API",
+    description="API for EmpowerHer Application",
     version="1.0.0"
 )
 
