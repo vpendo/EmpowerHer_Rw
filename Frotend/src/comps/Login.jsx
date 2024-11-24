@@ -32,6 +32,7 @@ export default function Login() {
       if (res.data.status == "Successfully logged in") {
         console.log(res.data.UserInfo)
         localStorage.setItem("UserInfo",JSON.stringify(res.data.UserInfo))
+        localStorage.setItem("userRole", res.data.UserInfo.role.toLowerCase());
          window.location.href ="/studentdashboard";
       } else {
         setDoneN(res.data.Error || "Login failed. Please try again.");

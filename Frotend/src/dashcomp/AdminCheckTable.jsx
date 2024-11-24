@@ -13,9 +13,9 @@ const AdminCheckTable = () => {
     {
       id: 1,
       type: 'certificate',
-      student: "John Doe",
-      course: "React Development Masterclass",
-      completionDate: "2024-11-18",
+      student: "Nelly",
+      course: "React Development",
+      completionDate: "2024-03-20",
       status: "pending_certificate",
       grade: "A",
       score: 95
@@ -23,19 +23,19 @@ const AdminCheckTable = () => {
     {
       id: 2,
       type: 'support',
-      student: "Jane Smith",
-      course: "Python for Data Science",
+      student: "Uwase",
+      course: "Web Development",
       issue: "Access problem to course materials",
       priority: "high",
-      reportedDate: "2024-11-19"
+      reportedDate: "2024-03-19"
     },
     {
       id: 3,
       type: 'review',
-      student: "Mike Johnson",
-      course: "Full Stack Development",
+      student: "Kelly",
+      course: "JavaScript Fundamentals",
       submission: "Final Project",
-      submissionDate: "2024-11-17",
+      submissionDate: "2024-03-17",
       status: "pending_review"
     }
   ]);
@@ -44,8 +44,8 @@ const AdminCheckTable = () => {
     {
       id: 1,
       type: 'technical',
-      student: "Alice Brown",
-      course: "UI/UX Design",
+      student: "Kethia",
+      course: "Python Programming",
       description: "Video playback issues",
       status: "open",
       priority: "medium"
@@ -53,8 +53,8 @@ const AdminCheckTable = () => {
     {
       id: 2,
       type: 'access',
-      student: "Bob Wilson",
-      course: "Cybersecurity Fundamentals",
+      student: "Aline",
+      course: "Web Development",
       description: "Cannot access course content",
       status: "in_progress",
       priority: "high"

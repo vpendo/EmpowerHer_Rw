@@ -40,26 +40,6 @@ Ensure you have the following prerequisites before setting up the application:
 ### Setup
 
 1. Clone the Repository:
-`git clone https://github.com/vpendo/EmpowerHer_Rw.git`
-`cd EmpowerHer_Rw`
-
-2. Install dependencies for frontend 
-## cd Frotend
-`pnpm install`
-
-3 Run client
-`pnpm run dev`
-Visit `http://localhost:5173/`
-
-4. Install dependencies for backend
-`cd ../Backend`
-`python3 -m venv venv`
-`source venv/bin/activate`
-`pip install -r requirements.txt`
-
-5.run server
-`uvicorn main:app --reload`
-Visit `http://127.0.0.1:8000/`
 
 
 

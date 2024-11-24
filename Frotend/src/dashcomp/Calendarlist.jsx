@@ -5,15 +5,17 @@ import { Input } from "../ui/input";
 
 // Initial data
 const initialStudents = [
-  { id: 1, name: 'Mutoni Jacky' },
-  { id: 2, name: 'Pascaline Jane' },
-  { id: 3, name: 'Asifiwe' },
+  { id: 1, name: 'Nelly' },
+  { id: 2, name: 'Uwase' },
+  { id: 3, name: 'Kelly' },
+  { id: 4, name: 'Kethia' },
+  { id: 5, name: 'Aline' },
 ];
 
 const initialSessions = [
   {
     id: 1,
-    studentName: 'Keza John',
+    studentName: 'Nelly',
     date: '2024-11-01',
     startTime: '10:00',
     endTime: '11:00',
@@ -21,7 +23,7 @@ const initialSessions = [
   },
   {
     id: 2,
-    studentName: 'Pascaline Jane',
+    studentName: 'Uwase',
     date: '2024-11-01',
     startTime: '11:00',
     endTime: '12:00',
@@ -29,7 +31,7 @@ const initialSessions = [
   },
   {
     id: 3,
-    studentName: 'Asifiwe',
+    studentName: 'Kelly',
     date: '2024-11-02',
     startTime: '09:00',
     endTime: '10:00',
@@ -37,7 +39,7 @@ const initialSessions = [
   },
   {
     id: 4,
-    studentName: 'mutoni Jane',
+    studentName: 'Kethia',
     date: '2024-11-02',
     startTime: '10:00',
     endTime: '11:30',
@@ -45,18 +47,10 @@ const initialSessions = [
   },
   {
     id: 5,
-    studentName: 'kelly Jacky',
+    studentName: 'Aline',
     date: '2024-11-03',
     startTime: '14:00',
     endTime: '15:00',
-    duration: '1 hour'
-  },
-  {
-    id: 6,
-    studentName: 'nelly umwiza ',
-    date: '2024-11-03',
-    startTime: '15:30',
-    endTime: '16:30',
     duration: '1 hour'
   }
 ];

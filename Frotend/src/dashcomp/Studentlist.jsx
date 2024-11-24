@@ -4,7 +4,7 @@ import React from 'react';
 const students = [
   {
     id: 1,
-    name: 'Mutoni Jacky',
+    name: 'Nelly',
     year: 'Sophomore',
     description: 'Exploring different fields in technology and interested in learning about career options in software development.',
     interests: 'Software Development, Career Guidance, Web Development',
@@ -12,7 +12,7 @@ const students = [
   },
   {
     id: 2,
-    name: 'Pascaline Jane',
+    name: 'Uwase',
     year: 'Junior',
     description: 'Passionate about robotics and researching opportunities to study robotics in Rwanda and beyond.',
     interests: 'Robotics, Artificial Intelligence, Machine Learning',
@@ -20,12 +20,28 @@ const students = [
   },
   {
     id: 3,
-    name: 'Asifiwe',
+    name: 'Kelly',
     year: 'Senior',
     description: 'Building a strong foundation in programming to explore tech-based career paths.',
     interests: 'Programming, Career Development, Cybersecurity',
     sessionsBooked: 3,
   },
+  {
+    id: 4,
+    name: 'Kethia',
+    year: 'Junior',
+    description: 'Learning web development and exploring modern frameworks.',
+    interests: 'Web Development, React, Frontend Development',
+    sessionsBooked: 2,
+  },
+  {
+    id: 5,
+    name: 'Aline',
+    year: 'Sophomore',
+    description: 'Building a strong foundation in web development and exploring modern frameworks.',
+    interests: 'Web Development, React, Frontend Development',
+    sessionsBooked: 2,
+  }
 ];
 
 // StudentList component

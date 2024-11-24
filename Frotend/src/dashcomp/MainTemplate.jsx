@@ -6,6 +6,7 @@ import {
 } from 'react-icons/fi';
 import HomeDash from './HomeDash';
 import StudentDashboard from './StudentDashboard';
+import MentorDashboard from './MentorDashboard';
 import { useTheme } from '../App';
 import Courses from './Courses';
 import Mentors from './Mentors'; 
@@ -18,9 +19,8 @@ import UserTable from './UserTable';
 import MentorTable from './MentorTable';
 import CourseTable from './CourseTable';
 import Settings from './Settings';
-
 import AdminCheckTable from './AdminCheckTable';
-import MentorDashboard from './MentorDashboard';
+
 
 
 const DashboardLayout = () => {
@@ -31,7 +31,9 @@ const DashboardLayout = () => {
 
   // Define available roles and set the default
   const availableRoles = ['Student', 'mentor', 'admin']; // Add more roles as needed
-  const [currentRole, setCurrentRole] = useState(localStorage.getItem("userRole") || availableRoles[0]);
+  const [currentRole, setCurrentRole] = useState(
+    localStorage.getItem("userRole")?.toLowerCase() || 'student'
+  );
 
   // Navigation arrays for each role type
   const userNavigation = [
@@ -56,7 +58,7 @@ const DashboardLayout = () => {
     { name: 'Dashboard', href: '#', icon: FiHome, id: 'dashboard' },
     { name: 'User', href: '#', icon: FiUsers, id: 'User' },
     { name: 'Mentor', href: '#', icon: FiDollarSign, id: 'Mentor' },
-    { name: 'Course', href: '#', icon: FiPackage, id: 'Course' },
+    { name: 'CourseTable', href: '#', icon: FiPackage, id: 'CourseTable' },
     { name: 'Checking', href: '#', icon: FiPieChart, id: 'Checking' },
     { name: 'Settings', href: '#', icon: FiLayers, id: 'Settings' },
   ];
@@ -82,6 +84,8 @@ const DashboardLayout = () => {
     localStorage.removeItem("UserInfo");
     window.location.href = "";
   };
+
+  console.log("Current role:", currentRole); // This will help debug role issues
 
   return (
     <div className="min-h-screen flex bg-gray-50 text-gray-800">
@@ -193,11 +197,11 @@ const DashboardLayout = () => {
           {activeLink === "dashboard" && (
             currentRole === 'admin' ? (
               <HomeDash isAdmin={true} />
-            ) : currentRole === 'Student' ? (
-              <StudentDashboard />
-            ) : currentRole === 'Mentor' ? (
+            ) : currentRole === 'mentor' ? (
               <MentorDashboard />
-            ) : null
+            ) : (
+              <StudentDashboard />
+            )
           )}
           {activeLink === "Course" && <Courses />}
           {activeLink === "Mentors" && <Mentors />}
@@ -207,7 +211,7 @@ const DashboardLayout = () => {
           {activeLink === "grade" && <GradeList/>}
           {activeLink === "Feedback" && <ProgressList/>}
           {activeLink === "User" && <UserTable/>}
-          {activeLink === "Course" && <CourseTable/>}
+          {activeLink === "CourseTable" && <CourseTable/>}
           {activeLink === "Mentor" && <MentorTable/>}
           {activeLink === "Checking" && <AdminCheckTable/>}    
           {activeLink === "Settings" && <Settings/>}

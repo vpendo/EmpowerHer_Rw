@@ -6,10 +6,14 @@ import {
 } from 'lucide-react';
 
 const MentorDashboard = () => {
+  // Get mentor info from localStorage
+  const mentorInfo = JSON.parse(localStorage.getItem('UserInfo')) || {};
+  const mentorName = "Lucide";
+
   // Mentor's statistics
   const mentorStats = {
-    totalStudents: 125,
-    activeStudents: 85,
+    totalStudents: 5,
+    activeStudents: 5,
     completedSessions: 450,
     upcomingSessions: 8,
     averageRating: 4.8,
@@ -18,20 +22,20 @@ const MentorDashboard = () => {
     coursesTeaching: 4
   };
 
-  // Upcoming sessions
+  // Upcoming sessions with actual student names
   const upcomingSessions = [
     {
       id: 1,
-      student: "John Doe",
+      student: "Nelly",
       course: "React Development",
       date: "2024-03-20",
       time: "10:00 AM",
-      topic: "Advanced Hooks",
+      topic: "Advanced React Hooks",
       status: "confirmed"
     },
     {
       id: 2,
-      student: "Jane Smith",
+      student: "Uwase",
       course: "Web Development",
       date: "2024-03-20",
       time: "2:00 PM",
@@ -40,11 +44,11 @@ const MentorDashboard = () => {
     }
   ];
 
-  // Recent student progress
+  // Recent student progress with actual names
   const studentProgress = [
     {
       id: 1,
-      name: "John Doe",
+      name: "Nelly",
       course: "React Development",
       progress: 75,
       lastActivity: "Completed Module 5",
@@ -52,40 +56,71 @@ const MentorDashboard = () => {
     },
     {
       id: 2,
-      name: "Jane Smith",
+      name: "Uwase",
       course: "Web Development",
       progress: 60,
       lastActivity: "Submitted Assignment 3",
       trend: "stable"
+    },
+    {
+      id: 3,
+      name: "Kelly",
+      course: "JavaScript Fundamentals",
+      progress: 85,
+      lastActivity: "Completed Final Project",
+      trend: "up"
+    },
+    {
+      id: 4,
+      name: "Kethia",
+      course: "Python Programming",
+      progress: 45,
+      lastActivity: "Started Module 4",
+      trend: "stable"
+    },
+    {
+      id: 5,
+      name: "Aline",
+      course: "Web Development",
+      progress: 55,
+      lastActivity: "Completed Module 3",
+      trend: "up"
     }
   ];
 
-  // Recent feedback
+  // Recent feedback from actual students
   const recentFeedback = [
     {
       id: 1,
-      student: "John Doe",
+      student: "Nelly",
       rating: 5,
       comment: "Excellent explanation of complex concepts",
       date: "2024-03-18"
     },
     {
       id: 2,
-      student: "Jane Smith",
+      student: "Uwase",
       rating: 4.5,
       comment: "Very helpful session on React hooks",
       date: "2024-03-17"
+    },
+    {
+      id: 3,
+      student: "Kelly",
+      rating: 5,
+      comment: "Great support with JavaScript concepts",
+      date: "2024-03-16"
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Welcome Header */}
+        {/* Welcome Header - Updated with mentor name */}
         <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-8 mb-8 text-white">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Welcome back, Mentor!</h1>
+              <h1 className="text-3xl font-bold mb-2">Welcome back, {mentorName}!</h1>
               <p className="text-purple-100">Your impact today: {mentorStats.activeStudents} active students</p>
             </div>
             <div className="text-right">

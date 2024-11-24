@@ -5,14 +5,49 @@ const CourseTable = () => {
   const [courses, setCourses] = useState([
     {
       id: 1,
-      title: "React Development Masterclass",
+      title: "HTML & CSS Fundamentals",
       instructor: "Sarah Johnson",
-      level: "Advanced",
-      duration: "12 weeks",
+      level: "Beginner",
+      duration: "6 weeks",
       status: "Active",
-      lastUpdated: "2024-11-18"
+      lastUpdated: "2024-03-20"
     },
-    // ... add more courses
+    {
+      id: 2,
+      title: "JavaScript Essentials",
+      instructor: "Michael Chen",
+      level: "Beginner",
+      duration: "8 weeks",
+      status: "Active",
+      lastUpdated: "2024-03-19"
+    },
+    {
+      id: 3,
+      title: "React Development",
+      instructor: "Emma Wilson",
+      level: "Intermediate",
+      duration: "10 weeks",
+      status: "Active",
+      lastUpdated: "2024-03-18"
+    },
+    {
+      id: 4,
+      title: "Node.js Backend",
+      instructor: "David Brown",
+      level: "Intermediate",
+      duration: "8 weeks",
+      status: "Active",
+      lastUpdated: "2024-03-17"
+    },
+    {
+      id: 5,
+      title: "Python Programming",
+      instructor: "Lisa Anderson",
+      level: "Beginner",
+      duration: "8 weeks",
+      status: "Active",
+      lastUpdated: "2024-03-16"
+    }
   ]);
 
   const [search, setSearch] = useState('');
@@ -31,8 +66,15 @@ const CourseTable = () => {
   });
 
   const handleUpdateCourse = () => {
+    if (!selectedCourse.title || !selectedCourse.instructor || !selectedCourse.duration) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
     setCourses(courses.map(course => 
-      course.id === selectedCourse.id ? selectedCourse : course
+      course.id === selectedCourse.id ? 
+      { ...selectedCourse, lastUpdated: new Date().toISOString().split('T')[0] } : 
+      course
     ));
     setIsEditing(false);
     setSelectedCourse(null);
@@ -42,6 +84,36 @@ const CourseTable = () => {
     setCourses(courses.filter(course => course.id !== selectedCourse.id));
     setShowDeleteModal(false);
     setSelectedCourse(null);
+  };
+
+  const handleAddCourse = () => {
+    // Validate required fields
+    if (!newCourse.title || !newCourse.instructor || !newCourse.duration) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    // Create new course object
+    const courseToAdd = {
+      id: courses.length + 1,
+      ...newCourse,
+      lastUpdated: new Date().toISOString().split('T')[0]
+    };
+
+    // Add course to list
+    setCourses([...courses, courseToAdd]);
+
+    // Reset form
+    setNewCourse({
+      title: '',
+      instructor: '',
+      level: 'Beginner',
+      duration: '',
+      status: 'Active'
+    });
+
+    // Close modal
+    setShowAddModal(false);
   };
 
   return (
