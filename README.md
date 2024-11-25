@@ -90,8 +90,8 @@ cd frontend
    uvicorn main:app --reload
 
    ```
-4. Access the Application:
-5. 
+4. Access the Application in your browser
+
   - Frontend :
    ```
    http://localhost:5173/
@@ -101,6 +101,9 @@ cd frontend
 ``` 
   http://127.0.0.1:8000
  ```
+## License
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
    
    
 
