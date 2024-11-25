@@ -1,6 +1,6 @@
 # EmpowerHer Rwanda Platform
 
-This repository houses a comprehensive learning and mentorship platform developed with React and FastAPI. The application empowers young women in Rwanda through technology education, mentorship, and career development opportunities.
+This repository a comprehensive learning and mentorship platform developed with React and FastAPI. The application empowers young women in Rwanda through technology education, mentorship, and career development opportunities.
 
 ## Features
 - User Authentication & Role-based Access
@@ -8,9 +8,7 @@ This repository houses a comprehensive learning and mentorship platform develope
 - Mentorship System
 - Course Management
 - Progress Tracking
-- Community Forum
-- Real-time Feedback System
-- Certificate Generation
+
 
 ## Tech Stack
 
@@ -40,6 +38,71 @@ Ensure you have the following prerequisites before setting up the application:
 ### Setup
 
 1. Clone the Repository:
+
+   
+   ```
+   https://github.com/vpendo/EmpowerHer_Rw.git
+
+   cd EmpowerHer_Rw
+   ```
+
+2.Set Up the Frontend:
+
+```
+cd frontend
+
+```
+- Install dependencies:
+  
+  ```
+  pnpm install
+
+  ```
+- Configure the .env file
+
+  ```
+  pnpm  run dev 
+
+  ```
+
+3. Set Up the Backend:
+ - Navigate to the backend folder
+   
+   ```
+   cd backend
+   ```
+ - Create a virtual environment and activate it:
+     
+     ```
+     python3 -m venv venv
+     source venv/bin/activate  or  `venv\Scripts\activate`
+
+     ```
+ - Install dependencies:
+   
+   ```
+   pip install -r requirements.txt
+
+   ```
+ - Start the FastAPI server:
+   
+   ```
+   uvicorn main:app --reload
+
+   ```
+4. Access the Application:
+5. 
+  - Frontend :
+   ```
+   http://localhost:5173/
+   ```
+- Backend API documentation
+
+``` 
+  http://127.0.0.1:8000
+ ```
+   
+   
 
 
 
