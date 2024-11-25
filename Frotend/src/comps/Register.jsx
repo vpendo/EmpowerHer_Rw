@@ -33,7 +33,7 @@ export default function Register() {
     setError(""); // Reset any previous error
 
     try {
-      const res = await axios.post("http://localhost:8000/auth/register", values);
+      const res = await axios.post("https://empowerher-rw.onrender.com/auth/register", values);
 
       // Check if registration is successful
       if (res.data.status === "Successfully Registered") {

@@ -4,7 +4,7 @@ export const Courses = () => {
   const courses = [
     {
       id: 1,
-      image: 'https://decentinstitute.in/wp-content/uploads/2022/10/html-css-javascript.webp',
+      image: 'https://cdn.pixabay.com/photo/2019/10/09/07/28/development-4536630_640.png',
       title: 'Web Development',
       description: 'Learn the fundamentals of web development with HTML, CSS, and JavaScript.',
       date: '1/11/2024',

@@ -23,7 +23,7 @@ export default function Login() {
     }
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/auth/login", {
+      const res = await axios.post("https://empowerher-rw.onrender.com/auth/login", {
         email: values.email,
         password: values.password
       });
