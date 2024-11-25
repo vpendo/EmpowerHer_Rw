@@ -26,7 +26,10 @@ export default function Login() {
       const res = await axios.post("https://empowerher-rw.onrender.com/auth/login", {
         email: values.email,
         password: values.password
-      });
+      },{
+        withCredentials: true
+      }
+    );
 
       // Assuming successful login response contains a status message
       if (res.data.status == "Successfully logged in") {
