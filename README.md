@@ -103,6 +103,10 @@ cd frontend
  ```
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more information.
+## Educational Purpose
+This project is designed for educational purposes by the EmpowerHer. Feel free to explore, modify, and learn from the codebase. If you have questions, suggestions, or ideas, please create an issue in the repository or reach out directly.
+
+Happy coding and empowering! 🎉
 
    
    
