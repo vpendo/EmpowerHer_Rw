@@ -8,16 +8,16 @@ import {
 const MentorDashboard = () => {
   // Get mentor info from localStorage
   const mentorInfo = JSON.parse(localStorage.getItem('UserInfo')) || {};
-  const mentorName = "Lucide";
+  const mentorName = "Vestine";
 
   // Mentor's statistics
   const mentorStats = {
     totalStudents: 5,
     activeStudents: 5,
-    completedSessions: 450,
+    completedSessions: 1,
     upcomingSessions: 8,
     averageRating: 4.8,
-    totalHours: 650,
+    totalHours: 1,
     responseRate: 98,
     coursesTeaching: 4
   };
