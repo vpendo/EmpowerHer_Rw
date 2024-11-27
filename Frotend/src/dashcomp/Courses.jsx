@@ -45,7 +45,8 @@ const Courses = () => {
         "Interactive coding exercises",
         "Project source code",
         "Certificate of completion"
-      ]
+      ],
+      videoUrl: "https://www.youtube.com/watch?v=x4rFhThSX04"
     },
     {
       id: 2,
@@ -78,7 +79,8 @@ const Courses = () => {
         "Video tutorials",
         "Practice datasets",
         "Jupyter notebooks"
-      ]
+      ],
+      videoUrl: "https://www.youtube.com/watch?v=_uQrJ0TkZlc"
     },
     {
       id: 3,
@@ -115,7 +117,8 @@ const Courses = () => {
         "Practice exercises",
         "Project files",
         "Coding resources"
-      ]
+      ],
+      videoUrl: "https://www.youtube.com/watch?v=kUMe1FH4CHE&list=PLWKjhJtqVAbnSe1qUNMG7AbPmjIG54u88"
     },
     {
       id: 4,
@@ -152,7 +155,8 @@ const Courses = () => {
         "Coding exercises",
         "Project starter files",
         "Development environment setup guide"
-      ]
+      ],
+      videoUrl: "https://www.youtube.com/watch?v=nu_pCVPKzTk"
     },
     {
       id: 5,
@@ -189,7 +193,8 @@ const Courses = () => {
         "Security tools guide",
         "Practice labs",
         "Case studies"
-      ]
+      ],
+      videoUrl: "https://www.youtube.com/watch?v=rL9h1Z5VMtM"
     },
     {
       id: 6,
@@ -226,7 +231,8 @@ const Courses = () => {
         "UI kit templates",
         "Case study projects",
         "Design resources library"
-      ]
+      ],
+      videoUrl: "https://www.youtube.com/watch?app=desktop&v=uC1VK4ktsFc"
     }
   ];
 
@@ -261,6 +267,11 @@ const Courses = () => {
     if (enrollingCourse) {
       setEnrolledCourses([...enrolledCourses, enrollingCourse.id]);
       setShowEnrollPopup(false);
+      
+      if (enrollingCourse.videoUrl) {
+        window.open(enrollingCourse.videoUrl, '_blank');
+      }
+      
       setEnrollingCourse(null);
     }
   };
@@ -508,25 +519,31 @@ const Courses = () => {
       {showEnrollPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg p-6 max-w-md w-full">
-            <h3 className="text-xl font-semibold mb-4">Confirm Enrollment</h3>
+            <h3 className="text-xl font-semibold mb-4">Successfully Enrolled!</h3>
             <p className="text-gray-600 mb-6">
-              Are you sure you want to enroll in "{enrollingCourse?.title}"?
+              You have successfully enrolled in "{enrollingCourse?.title}". Would you like to watch the course video now or later?
             </p>
             <div className="flex justify-end gap-4">
               <button
                 onClick={() => {
+                  setEnrolledCourses([...enrolledCourses, enrollingCourse.id]);
                   setShowEnrollPopup(false);
                   setEnrollingCourse(null);
                 }}
                 className="px-4 py-2 text-gray-600 hover:text-gray-800"
               >
-                Cancel
+                Watch Later
               </button>
               <button
-                onClick={confirmEnrollment}
+                onClick={() => {
+                  setEnrolledCourses([...enrolledCourses, enrollingCourse.id]);
+                  window.open(enrollingCourse.videoUrl, '_blank');
+                  setShowEnrollPopup(false);
+                  setEnrollingCourse(null);
+                }}
                 className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
               >
-                Confirm Enrollment
+                Watch Now
               </button>
             </div>
           </div>
