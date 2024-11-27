@@ -13,7 +13,7 @@ app = FastAPI(
 # Configure CORS with specific origin
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173","http://localhost:5174","https://herempower.netlify.app"],  # Use your frontend URL instead of wildcard
+    allow_origins=["http://localhost:5173","http://localhost:5174","https://empowerherw.netlify.app/"],  # Use your frontend URL instead of wildcard
     allow_credentials=True,  # Allow cookies and credentials
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
